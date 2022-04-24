@@ -22,17 +22,17 @@
               
                 <div class="collapse navbar-collapse row" id="navbarSupportedContent">
                   <div class="col-md-3 text-center">
-                      <h4>Logo site</h4>
+                      <a href="/" class="text-white text-decoration-none"><h4>Logo site</h4></a>
                   </div>
                   <div class="col-md-6 text-center">
-                      <h1>{{ env('APP_NAME') }}</h1>
+                      <a href="/articles" class="text-white text-decoration-none"><h1>{{ env('APP_NAME') }}</h1></a>
                   </div>
                   <div class="col-md-3 text-center">
                       <h4>Drapeau</h4>
                   </div>
                 </div>
               </nav>
-              <div class="alert alert-secondary text-center">
+              <div class="alert alert-secondary rounded-0 text-center">
                   sommaire du site
               </div>
               <div class="container">
@@ -56,10 +56,56 @@
         </header>
 
         <main class="my-5">
-            @yield('content')
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        @yield('content')
+                    </div>
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div class="col-12">
+                                <picture>
+                                    
+                                    <img src="{{ asset('images/1646041949-Bugati Verone.jpg') }}" class="img-fluid img-thumbnail w-100 border" alt="...">
+                                </picture>
+                                <picture>
+                                    <img src="{{ asset('images/1646041949-Bugati Verone.jpg') }}" class="img-fluid img-thumbnail w-100 border" alt="...">
+                                </picture>
+                                <picture>
+                                    
+                                    <img src="{{ asset('images/1646041949-Bugati Verone.jpg') }}" class="img-fluid img-thumbnail w-100 border" alt="...">
+                                </picture>
+                                <picture>
+                                    
+                                    <img src="{{ asset('images/1646041949-Bugati Verone.jpg') }}" class="img-fluid img-thumbnail w-100 border" alt="...">
+                                </picture>
+                                <picture>
+                                    
+                                    <img src="{{ asset('images/1646041949-Bugati Verone.jpg') }}" class="img-fluid img-thumbnail w-100 border" alt="...">
+                                </picture>
+                            </div>
+                            <div class="col-md-12 articles mt-5">
+                                <h5 class="text-center text-black text-bolder opacity-50 mb-3">Popular Articles</h4>
+                                <div class="row">
+                                @foreach ($popular_articles as $a)
+                                    <a href="/articles/{{ $a['id'] }}" class="col-md-12 text-bold text-capitalize mb-1 text-decoration-none">
+                                        <div class="card w-100">
+                                            <img src="{{ asset($a['image_path']) }}" a="" srcset="">
+                                            <div class="card-body p-0">
+                                                <p class="card-text fs-6 text-center p-0">{{ $a['name_article'] }}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
 
-        <footer class="alert alert-secondary m-0">
+        <footer class="alert alert-secondary rounded-0  m-0">
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 px-4 py-2">
@@ -112,6 +158,10 @@
                     <div class="col-md-4 px-4 py-2">
                         <div class="contact">
                             <h2 class="text-primary fs-2 fw-bold">Links</h2>
+                            <ul class="" style="list-style: none; padding: 0">
+                                <a href="/" class="text-black opacity-75 text-decoration-none"><li class="">Home</li></a>
+                                <a href="/articles" class="text-black opacity-75 text-decoration-none"><li class="">Articles</li></a>
+                              </ul>
                         </div>
                     </div>
                     <hr>
